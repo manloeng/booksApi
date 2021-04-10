@@ -4,20 +4,13 @@ services:
   app:
     build: .
     ports:
-      - 9090
-    depends_on:
-      - mysql
-    stdin_open: true
-    tty: true
+      - 3030:3030
   mysql:
     image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: books
     ports:
       - 3060:3060
-    volumes:
-      - db_data:/var/lib/mysql/data
 
 volumes:
   db_data:
