@@ -3,7 +3,7 @@ const connection = require("../../model/connection");
 async function getAllBooks(req, res, next) {
   try {
     const sqlQuery = `SELECT * FROM assessment2`;
-    const data = await new Promise((resolve, reject) => {
+    const books = await new Promise((resolve, reject) => {
       connection.query(sqlQuery, (err, result) => {
         if (err) {
           reject(new Error());
@@ -13,7 +13,7 @@ async function getAllBooks(req, res, next) {
       });
     });
 
-    res.send({ data });
+    res.send({ books });
   } catch (err) {
     next(err);
   }
