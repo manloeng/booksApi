@@ -24,11 +24,10 @@ describe("Api Test For Base Route", () => {
       const requests = ["post", "put", "patch", "delete"];
       requests.forEach(async (request) => {
         try {
-          const { status, data } = await axios[request]("/api/users");
+          const { status, data } = await axios[request]("/api/books");
           expect(status).toEqual(405);
         } catch ({ response }) {
           expect(response.status).toEqual(405);
-          expect(response.msg).toEqual("Method not allowed");
         }
       });
     });
